@@ -1,0 +1,120 @@
+:root {
+  --dark-background: #121212;
+  --deep-green: #0a2342;
+  --accent-gold: #ffd700;
+  --text-white: #f4f4f4;
+  --card-background: #1e1e1e;
+  --highlight-blue: #2196f3;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  font-family: 'Inter', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, var(--dark-background), var(--deep-green));
+  color: var(--text-white);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: radial-gradient(
+    circle at center, 
+    rgba(10, 35, 66, 0.9), 
+    rgba(18, 18, 18, 0.95)
+  );
+}
+
+ 
+.game-header {
+  background: rgba(0,0,0,0.4);
+  padding: 15px;
+  text-align: center;
+}
+
+.game-header h1 {
+  color: var(--accent-gold);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.game-board {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  overflow: auto;
+  gap: 20px;
+}
+ 
+
+@media (max-width: 768px) {
+  .blackjack-game {
+    width: 95%;
+    height: auto;
+    max-height: none;
+  }
+
+  .game-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .game-controls {
+    align-items: center;
+    position: static;
+    padding: 15px;
+  }
+
+  .game-controls button {
+    width: 80%;
+    margin: 10px 0;
+  }
+}
+
+@media (max-height: 600px) {
+  .blackjack-game {
+    height: auto;
+    max-height: none;
+  }
+
+  .game-board {
+    padding: 10px;
+  }
+}
+
+.game-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  width: 100%;
+}
+
+.game-controls button {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+.game-controls button:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-color: #ddd;
+}
