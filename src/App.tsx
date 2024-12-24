@@ -76,7 +76,7 @@ const App: React.FC = () => {
         setGameStatus('not_started');
       }
     });
-  }, []);
+  }, [balance]);
 
   const hitCard = useCallback(() => {
     console.log('Hit Card clicked');
