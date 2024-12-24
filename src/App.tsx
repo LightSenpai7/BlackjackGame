@@ -3,7 +3,6 @@ import './App.css';
 import GameBoard from './components/GameBoard';
 import { 
   initializeDeck, 
-  dealInitialCards, 
   calculateHandValue 
 } from './utils/gameLogic';
 
