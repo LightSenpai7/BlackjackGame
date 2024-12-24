@@ -64,4 +64,4 @@ Blackjack Royale is a modern, responsive web-based Blackjack game built with Rea
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
-This project is open-source and available under the MIT License.
+[MIT License](https://github.com/LightSenpai7/BlackjackGame/blob/main/LICENSE)
