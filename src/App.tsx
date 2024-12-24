@@ -125,7 +125,7 @@ const App: React.FC = () => {
       setBalance(prevBalance => prevBalance + 10);
     } else if (dealerTotal > playerTotal) {
       setGameStatus('dealer_win');
-      setBalance(prevBalance => prevBalance - 90);
+      setBalance(prevBalance => prevBalance - 10);
     } else {
       setGameStatus('draw');
     }
