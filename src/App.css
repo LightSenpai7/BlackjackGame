@@ -13,6 +13,18 @@
   padding: 0;
 }
 
+.home-screen, .profile-screen, .rules-screen {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.play-btn, .profile-btn, .rules-btn, .back-btn, .reset-btn {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 body, html {
   font-family: 'Inter', 'Roboto', sans-serif;
   background: linear-gradient(135deg, var(--dark-background), var(--deep-green));
