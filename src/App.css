@@ -25,6 +25,28 @@
   cursor: pointer;
 }
 
+.input-container {
+  margin-top: 10px;
+}
+
+.input-label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.input-field {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100px;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
 body, html {
   font-family: 'Inter', 'Roboto', sans-serif;
   background: linear-gradient(135deg, var(--dark-background), var(--deep-green));

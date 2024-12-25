@@ -17,6 +17,7 @@ const App: React.FC = () => {
     const savedBalance = localStorage.getItem('balance');
     return savedBalance ? parseInt(savedBalance) : 100;
   });
+  const [betAmount, setBetAmount] = useState<number>(10); 
   const [view, setView] = useState<'home' | 'game' | 'rules' | 'profile'>('home');
 
   useEffect(() => {
@@ -29,10 +30,17 @@ const App: React.FC = () => {
     console.log('Dealer Score:', dealerScore);
     console.groupEnd();
     localStorage.setItem('balance', balance.toString());
-  }, [gameStatus, deck, playerHand, dealerHand, playerScore, dealerScore, balance]);
+    localStorage.setItem('betAmount', betAmount.toString());
+
+  }, [gameStatus, deck, playerHand, dealerHand, playerScore, dealerScore, balance, betAmount]);
 
   const resetBalance = () => {
     setBalance(100);
+  };
+
+  const handleBetChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const amount = parseInt(e.target.value);
+    setBetAmount(amount);
   };
 
   const startNewGame = useCallback((e?: React.MouseEvent | React.TouchEvent) => {
@@ -76,7 +84,7 @@ const App: React.FC = () => {
         setGameStatus('not_started');
       }
     });
-  }, [balance]);
+  }, [balance, betAmount]);
 
   const hitCard = useCallback(() => {
     console.log('Hit Card clicked');
@@ -122,10 +130,10 @@ const App: React.FC = () => {
 
     if (dealerTotal > 21 || playerTotal > dealerTotal) {
       setGameStatus('player_win');
-      setBalance(prevBalance => prevBalance + 10);
+      setBalance(prevBalance => prevBalance + betAmount);
     } else if (dealerTotal > playerTotal) {
       setGameStatus('dealer_win');
-      setBalance(prevBalance => prevBalance - 10);
+      setBalance(prevBalance => prevBalance - betAmount);
     } else {
       setGameStatus('draw');
     }
@@ -148,6 +156,12 @@ const App: React.FC = () => {
           <h1>Welcome to Blackjack</h1>
           <p className="disclaimer">This game is for entertainment purposes only and does not involve real gambling.</p>
           <p>If your balance runs out, you can refresh it by using the reset balance button in your profile.</p>
+         
+          <div className="input-container">
+            <label className="input-label">Bet Amount:</label>
+            <input type="number" value={betAmount} onChange={handleBetChange} className="input-field" />
+          </div>
+
           <button onClick={() => setView('game')} className="play-btn">Play</button>
           <button onClick={() => setView('profile')} className="profile-btn">Profile</button>
           <button onClick={() => setView('rules')} className="rules-btn">Rules</button>
