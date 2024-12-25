@@ -105,7 +105,7 @@ const App: React.FC = () => {
         setGameStatus('dealer_win');
       }
     }
-  }, [deck, playerHand, gameStatus, betAmount]);
+  }, [deck, playerHand, gameStatus]);
 
   const stand = useCallback(() => {
     console.log('Stand clicked');
@@ -137,7 +137,7 @@ const App: React.FC = () => {
     } else {
       setGameStatus('draw');
     }
-  }, [deck, dealerHand, playerHand, gameStatus]);
+  }, [deck, dealerHand, playerHand, gameStatus, betAmount]);
 
   const handleClick = (action: () => void) => (e?: React.MouseEvent | React.TouchEvent) => {
     if (e) {
