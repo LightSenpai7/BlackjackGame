@@ -84,7 +84,7 @@ const App: React.FC = () => {
         setGameStatus('not_started');
       }
     });
-  }, [balance, betAmount]);
+  }, [balance]);
 
   const hitCard = useCallback(() => {
     console.log('Hit Card clicked');
@@ -105,7 +105,7 @@ const App: React.FC = () => {
         setGameStatus('dealer_win');
       }
     }
-  }, [deck, playerHand, gameStatus]);
+  }, [deck, playerHand, gameStatus, betAmount]);
 
   const stand = useCallback(() => {
     console.log('Stand clicked');
